@@ -1,11 +1,10 @@
 # Geophotobash
 
-Bash shell script for lean automated photographic workflow.
+Bash shell script for automated photographic workflow.
 
 ## Dependencies
 
-- Fossil
-- wget
+- Git
 - cURL
 - bc
 - jq
@@ -19,13 +18,11 @@ A Linux machine with the Bash shell and an Internet connection.
 
 To deploy Geophotobash on Debian and Ubuntu-based Linux distributions, use the following commands:
 
-`sudo apt install fossil wget curl bc jq libimage-exiftool-perl`
+`sudo apt install git-core curl bc jq libimage-exiftool-perl`
 
-`mkdir geophotobash && cd $_`
+`git clone https://gitlab.com/dmpop/geophotobash.git`
 
-`wget geophotobash.fossil`
-
-`fossil open geophotobash.fossil`
+`cd geophotobash`
 
 `sudo cp geophotobash.sh /local/bin/geophotobash`
 
