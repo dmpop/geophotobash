@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 OPTIND=1
 
 # Check whether the Nominatim service is reachable
