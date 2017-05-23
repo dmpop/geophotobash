@@ -40,7 +40,7 @@ Example:
 
 `geophotobash -f Tokyo Japan`
 
-To orgazine geotagged photos:
+To organize geotagged photos:
 
 `geophotobash -r`
 
