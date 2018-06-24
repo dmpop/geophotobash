@@ -18,31 +18,24 @@ A Linux machine with the Bash shell and an Internet connection.
 
 To deploy Geophotobash on Debian and Ubuntu-based Linux distributions, use the following commands:
 
-`sudo apt install git-core curl bc jq libimage-exiftool-perl`
-
-`git clone https://gitlab.com/dmpop/geophotobash.git`
-
-`cd geophotobash`
-
-`sudo cp geophotobash.sh /local/bin/geophotobash`
-
-`sudo chown root:root /local/bin/geophotobash`
-
-`sudo sudo chmod 755 /local/bin/geophotobash`
+```
+sudo apt install git-core curl bc jq libimage-exiftool-perl
+git clone https://gitlab.com/dmpop/geophotobash.git
+cd geophotobash
+sudo cp geophotobash.sh /local/bin/geophotobash
+sudo chown root:root /local/bin/geophotobash
+sudo sudo chmod 755 /local/bin/geophotobash
+```
 
 ## Usage
 
 To geotag and organize photos:
 
-`geophotobash -f [CITY] [COUNTRY]`
+`geophotobash -g [CITY]`
 
 Example:
 
-`geophotobash -f Tokyo Japan`
-
-To organize geotagged photos:
-
-`geophotobash -r`
+`geophotobash -g Tokyo`
 
 ## Author
 

@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+# Author: Dmitri Popov, dmpop@linux.com
+# License: GPLv3 https://www.gnu.org/licenses/gpl-3.0.txt
+# Source code: https://gitlab.com/dmpop/geophotobash
+
 OPTIND=1
 
 # Check whether the Photon service is reachable
@@ -9,15 +14,15 @@ if [ $? -ne 0 ]; then
 fi 
 
 # Use GETOPS to read the parameter supplied with the command
-# Supported parameters: -h and -? (help), -f (forward geocoding)
+# Supported parameters: -h and -? (help), -g (geocoding)
 while getopts "h?f" opt; do
   case $opt in
-  f)
+  g)
   # Shift one position to read the [CITY] value
   shift $((OPTIND-1))
   city=$1
   
-  # Use the curl tool to fetch geographical data via an HTTP request using the Nominatim service
+  # Use the curl tool to fetch geographical data via an HTTP request using the Photon service
   # Pipe the output in the JSON format to the jq tool to extract the latitude value
   # Use the tr tool to remove the quotes around the returned latitude value
   lat=$(curl "photon.komoot.de/api/?q=$1" | jq '.features | .[0] | .geometry | .coordinates | .[1]')
@@ -32,7 +37,7 @@ while getopts "h?f" opt; do
     latref="S"
   fi
   
-  # Use the curl tool to fetch geographical data via an HTTP request using the Nominatim service
+  # Use the curl tool to fetch geographical data via an HTTP request using the Photon service
   # Pipe the output in the JSON format to the jq tool to extract the longitude value
   # Use the tr tool to remove the quotes around the returned longitude value
   lon=$(curl "photon.komoot.de/api/?q=$1" | jq '.features | .[0] | .geometry | .coordinates | .[0]')
@@ -64,10 +69,8 @@ while getopts "h?f" opt; do
   USAGE
   =====
   
-  To geotag and organize photos: $0 -f [CITY] e.g., $0 -f Tokyo
-  
-  To orgazine geotagged photos: $0 geophotobash -r
-  
+  To geotag and organize photos: $0 -g [CITY] e.g., $0 -g Tokyo
+
 EOF
   exit 2
 ;;
