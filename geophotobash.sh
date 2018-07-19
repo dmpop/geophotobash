@@ -15,7 +15,7 @@ fi
 
 # Use GETOPS to read the parameter supplied with the command
 # Supported parameters: -h and -? (help), -g (geocoding)
-while getopts "h?f" opt; do
+while getopts "h?g" opt; do
   case $opt in
   g)
   # Shift one position to read the [CITY] value
