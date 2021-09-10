@@ -7,7 +7,7 @@
 OPTIND=1
 
 # Check whether the Photon service is reachable
-wget -q --spider http://photon.komoot.de/
+wget -q --spider https://photon.komoot.io/
 if [ $? -ne 0 ]; then
     echo "Photon is not reachable. Check your Internet connection."
     exit 1
@@ -25,7 +25,7 @@ while getopts "h?g" opt; do
   # Use the curl tool to fetch geographical data via an HTTP request using the Photon service
   # Pipe the output in the JSON format to the jq tool to extract the latitude value
   # Use the tr tool to remove the quotes around the returned latitude value
-  lat=$(curl "photon.komoot.de/api/?q=$1" | jq '.features | .[0] | .geometry | .coordinates | .[1]')
+  lat=$(curl "https://photon.komoot.io/api/?q=$1" | jq '.features | .[0] | .geometry | .coordinates | .[1]')
   
   # Calculate the latitude and longitude references
   # The latitude reference is N if the latitude value is positive
@@ -40,7 +40,7 @@ while getopts "h?g" opt; do
   # Use the curl tool to fetch geographical data via an HTTP request using the Photon service
   # Pipe the output in the JSON format to the jq tool to extract the longitude value
   # Use the tr tool to remove the quotes around the returned longitude value
-  lon=$(curl "photon.komoot.de/api/?q=$1" | jq '.features | .[0] | .geometry | .coordinates | .[0]')
+  lon=$(curl "https://photon.komoot.io/api/?q=$1" | jq '.features | .[0] | .geometry | .coordinates | .[0]')
   
   # Calculate the correct longitude references for the given longitude value
   # The longitude reference is E if the longitude value is positive
