@@ -10,21 +10,18 @@ Bash shell script for automated photographic workflow.
 - jq
 - ExifTool
 
-# Requirements
+## Requirements
 
 A Linux machine with the Bash shell and an Internet connection.
 
 ## Installation
 
-To deploy Geophotobash on Debian and Ubuntu-based Linux distributions, use the following commands:
+To install Geophotobash on Ubuntu and Linux Mint distributions, use the following commands:
 
 ```
-sudo apt install git-core curl bc jq libimage-exiftool-perl
-git clone https://gitlab.com/dmpop/geophotobash.git
-cd geophotobash
-sudo cp geophotobash.sh /local/bin/geophotobash
-sudo chown root:root /local/bin/geophotobash
-sudo sudo chmod 755 /local/bin/geophotobash
+sudo apt install git-core curl bc jq exiftool
+git clone https://github.com/dmpop/geophotobash.git
+cp geophotobash/geophotobash.sh $HOME/bin/geophotobash
 ```
 
 ## Usage
@@ -37,9 +34,13 @@ Example:
 
 `geophotobash -g Tokyo`
 
+The [Linux Photography](https://gumroad.com/l/linux-photography) book provides detailed information on using Geophotobash. Get your copy at [Google Play Store](https://play.google.com/store/books/details/Dmitri_Popov_Linux_Photography?id=cO70CwAAQBAJ) or [Gumroad](https://gumroad.com/l/linux-photography).
+
+<img src="https://tokyoma.de/bookcovers/linux-photography.jpg" title="Linux Photography book" width="200"/>
+
 ## Author
 
-Dmitri Popov [dmpop@linux.com](mailto:dmpop@linux.com)
+Dmitri Popov [dmpop@linux.com](mailto:dmpop@tokyoma.de)
 
 ## License
 
